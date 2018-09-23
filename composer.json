@@ -1,0 +1,41 @@
+{
+    "name": "tonysong/dashq",
+    "description": ":description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "author name",
+            "email": "author email",
+            "homepage": "author homepage"
+        }
+    ],
+    "homepage": "https://github.com/tonysong/dashq",
+    "keywords": ["Laravel", "DashQ"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TonySong\\DashQ\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TonySong\\DashQ\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TonySong\\DashQ\\DashQServiceProvider"
+            ],
+            "aliases": {
+                "DashQ": "TonySong\\DashQ\\Facades\\DashQ"
+            }
+        }
+    }
+}

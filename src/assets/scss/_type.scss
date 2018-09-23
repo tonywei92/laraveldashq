@@ -1,0 +1,24 @@
+body{
+   font-family: 'Lato', 'Arial', sans-serif;
+   color: $baseColor;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.thin{
+    font-weight: 200;
+}
+.page-title{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.text-jumbo{
+    font-size: 8rem;
+}

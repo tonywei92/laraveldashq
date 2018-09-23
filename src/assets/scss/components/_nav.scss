@@ -1,0 +1,16 @@
+.nav{
+    background-color: $baseColor;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    &__logo-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo{
+        fill: #fff;
+        width: 100%;
+        max-width: 168px;
+    }
+}

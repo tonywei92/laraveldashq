@@ -1,0 +1,9 @@
+.code{
+    margin:0;
+    padding: 0;
+    line-height: normal;
+    &.collapsed{
+         max-height: 1rem;
+        overflow: hidden;
+    }
+}
