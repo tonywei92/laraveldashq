@@ -1,0 +1,18 @@
+.well{
+    background-color: #efefef;
+    margin: 10px;
+    padding:15px;
+    border-radius: 4px;
+    &__delete{
+        border: none;
+        display: block;
+        float: right;
+        font-weight: bold;
+    }
+    &--danger{
+        background-color: #ff8d8d;
+    }
+    &--success{
+        background-color: #84ffc6;
+    }
+}

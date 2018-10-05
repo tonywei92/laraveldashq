@@ -13,8 +13,8 @@
         <nav class='nav'>
             <div class="container">
                 <div class="row">
-                    <div class="col-3">
-                        <a href="#" class="btn btn-icon m-menu">
+                    <div class="col-3 d-block d-lg-none">
+                       <a href="#" class="btn btn-icon m-menu btn-toggle-menu">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -128,13 +128,48 @@
 
             </div>
         </nav>
+        <nav class="sidebar-drawer">
+            <div class="sidebar-drawer__title">
+                DashQ Menu
+            </div>
+            <ul class="sidebar-drawer__menu">
+                <li class="sidebar-drawer__menu__item sidebar-drawer__menu__item--active">
+                    <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>  
+                </li>
+                <li class="sidebar-drawer__menu__item">
+                    <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Jobs</a>
+                </li>
+                <li class="sidebar-drawer__menu__item">
+                    <a href="#"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Failed Jobs</a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-toggle-menu sidebar-drawer__close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </nav>
+        <div class="overlay btn-toggle-menu">
+
+        </div>
         <div class="content">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <h1 class='page-title'>Jobs</h1>
                     </div>
-                    <div class="col-12 card">
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <div class="div sidebar">
+                            <ul class="sidebar__menu">
+                                <li class="sidebar__menu__item sidebar__menu__item--active">
+                                    <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>  
+                                </li>
+                                <li class="sidebar__menu__item">
+                                    <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Jobs</a>
+                                </li>
+                                <li class="sidebar__menu__item">
+                                    <a href="#"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Failed Jobs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-9 card">
                         <div class="card__list">
                             <div class="card__list__no-record">
                                 <div class="text-center text-jumbo">
@@ -143,23 +178,26 @@
                                 <div class='text-center'><em>No record found</em></div>
                             </div>
                             <div class="row card__list__action">
-                                <div class="col text-right">
-                                    <a href="#" class="btn"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-                                    <a href="#" class="btn"><i class="fa fa-square-o" aria-hidden="true"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <div class="col-6">
+                                    <p>Item total: 20</p>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <a href="#" class="btn btn-checkall"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn btn-uncheckall"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn btn-danger btn-delete-selected"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-                           
+
                             <div class="row card__list__item">
                                 <div class="col-12">
                                     <div class="row card__list__item__header">
-                                        <div class="col-8 card__list__item__header__title">
-                                            <span><input type="checkbox"></span>
+                                        <div class="col-7 card__list__item__header__title">
+                                            <span><input class='card__list__item__checkbox' type="checkbox"></span>
                                             <span>102102321@Default</span> <div class="thin">Saturday, 12 Sept 2018</div>
-                                            <span>Attempts : 3</span>
+                                            <div class="thin">Attempt(s): 0</div>
                                         </div>
-                                        <div class="col-4 card__list__item__header__action text-right">
-                                            <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        <div class="col-5 card__list__item__header__action text-right">
+                                            <a href="#" class="btn btn-danger card__list__item__header__action__delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             <a href="#" class="btn btn-expand"><i class="fa fa-expand" aria-hidden="true"></i></a>
                                             <a href="#" class="btn btn-compress"><i class="fa fa-compress" aria-hidden="true"></i></a>
                                         </div>       
@@ -167,6 +205,10 @@
                                 </div>
                                 <div class="col-12 card__list__item__content">
                                     <p>Payload :</p>
+                                    <textarea name="" id="" cols="30" rows="10">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi perspiciatis et, unde tempore reiciendis deserunt ipsa tempora impedit fugiat, soluta mollitia dolor facilis explicabo autem harum ipsum adipisci, ipsam illo.
+                                    </textarea>
+                                    <p>Exception:</p>
                                     <textarea name="" id="" cols="30" rows="10">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi perspiciatis et, unde tempore reiciendis deserunt ipsa tempora impedit fugiat, soluta mollitia dolor facilis explicabo autem harum ipsum adipisci, ipsam illo.
                                     </textarea>
@@ -177,10 +219,10 @@
                                     <div class="row card__list__item__header">
 
                                         <div class="col-8 card__list__item__header__title">
-                                            <span><input type="checkbox"></span>
+                                            <span><input class='card__list__item__checkbox' type="checkbox"></span>
                                             <span>102102321@Default</span>
-                                            <div>Attempts : 3</div>
                                             <div class="thin">Created at 12 Sept 2018</div>
+                                            <div class="thin">Attempt(s): 0</div>
                                         </div>
                                         <div class="col-4 card__list__item__header__action text-right">
                                             <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -195,14 +237,28 @@
                                     <textarea name="" id="" cols="30" rows="10">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi perspiciatis et, unde tempore reiciendis deserunt ipsa tempora impedit fugiat, soluta mollitia dolor facilis explicabo autem harum ipsum adipisci, ipsam illo.
                                     </textarea>
+                                    <p>Exception :</p>
+                                    <textarea name="" id="" cols="30" rows="10">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi perspiciatis et, unde tempore reiciendis deserunt ipsa tempora impedit fugiat, soluta mollitia dolor facilis explicabo autem harum ipsum adipisci, ipsam illo.
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
 
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
 </html>

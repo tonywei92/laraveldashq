@@ -1,12 +1,22 @@
 .nav{
+
+    position: fixed;
+    z-index: 1600;
+    width:100%;
     background-color: $baseColor;
     height: 3.5rem;
     display: flex;
     align-items: center;
     &__logo-container{
+
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        @include atLarge{
+            justify-content:flex-start;    
+        }
+
     }
     .logo{
         fill: #fff;
@@ -14,3 +24,55 @@
         max-width: 168px;
     }
 }
+
+.pagination{
+    padding: 0;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .page-item{
+        text-align: center;
+        &:first-child{
+            min-width: 35px;
+        }
+        &:last-child{
+            min-width: 35px;
+        }
+        border-radius: 4px;
+        display: block;
+        background-color: $paginationBgColor;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        transition: all 0.4s;
+        a, span{
+            display: block;
+            padding: 8px 10px 8px 10px;
+            width: 100%;
+            color: #fff;
+            border:none;
+        }
+        &:hover{
+            background-color: lighten($paginationBgColor,10);
+        }
+        &.active{
+            background-color: lighten($paginationBgColor,15);
+        }
+        &.disabled{
+            a{
+                color: #555;    
+                cursor: not-allowed;
+            }
+
+            background-color: #a5a5a5;
+            pointer-events: none;
+        }
+    }
+
+
+
+
+}
+
+

@@ -1,0 +1,45 @@
+.modal{
+    position: fixed;
+    z-index: 10000;
+    background-color: #fff;
+    top: -100%;
+    left:50%;
+    min-width: 300px;
+    @include atSmall{
+        min-width: 400px;
+    }
+    max-width: 500px;
+    transform: translateX(-50%);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    border-radius: 8px;
+    transition: all 0.4s;
+    &.open{
+        top: 40px;
+    }
+    &__title{
+        font-weight: bold;
+        padding: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    }
+    &__close{
+        &__btn{
+            font-size: 1.2rem;
+            float: right;
+            border-bottom: 0; 
+        }
+
+    }
+    &__body{
+        padding: 20px;
+    }
+    &__action{
+        border-top: 1px solid rgba(0,0,0,0.1);
+        text-align: right;
+        padding: 20px;
+        a{
+            margin-left: 6px;
+        }
+    }
+
+}

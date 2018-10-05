@@ -1,49 +1,68 @@
 <?php
+
 namespace TonySong\DashQ\models;
+
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
 class FailedJob
 {
     static public $tableName = 'failed_jobs';
 
-    static public function get($page = 0, $itemsPerPage = 10)
+    static public function getCount()
     {
-        if ($page === 0) {
-            return DB::table(self::$tableName);
-        }
-        $page = $page - 1;
-        $startFrom = $page * $itemsPerPage;
-        return DB::table(self::$tableName)->skip($startFrom)->take($itemsPerPage)->get();
+        return DB::table(self::$tableName)->count();
     }
 
-    static public function delete($ids){
-        if(is_array($ids)){
-            DB::transaction(function() use($ids){
-               foreach ($ids as $id){
-                   DB::table(self::$tableName)->delete($id);
-               }
+    static public function get($keyword = '', $itemsPerPage = 15)
+    {
+        return DB::table(self::$tableName)
+            ->where('exception', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('payload', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('queue', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('connection', 'LIKE', '%' . $keyword . '%')
+            ->orderByDesc('id')->paginate($itemsPerPage);
+    }
+
+    static public function delete($ids)
+    {
+        if (is_array($ids)) {
+            DB::transaction(function () use ($ids) {
+                foreach ($ids as $id) {
+                    DB::table(self::$tableName)->delete($id);
+                }
             });
-        }
-        else{
+        } else {
             DB::table(self::$tableName)->delete($ids);
         }
         return true;
     }
 
-    static public function retry($ids){
-        if(is_array($ids)){
-            foreach ($ids as $id){
+    static public function deleteAll()
+    {
+        DB::table(self::$tableName)->truncate();
+        return true;
+    }
+
+    static public function retry($ids)
+    {
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
                 Artisan::call('queue:retry', [
-                    $id
+                    'id' => [$id]
                 ]);
             }
-        }
-        else {
+        } else {
             Artisan::call('queue:retry', [
-               $ids
+                'id' => [$ids]
             ]);
         }
         return true;
     }
 
+    static public function retryAll()
+    {
+        Artisan::call('queue:retry', 'all');
+        return true;
+    }
 }

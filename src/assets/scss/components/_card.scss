@@ -1,10 +1,9 @@
 .card{
+    background: #fff;
     border-radius: 2px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 15px;
+    margin-bottom: 20px;
 
     &__item{
         cursor:default;
@@ -38,12 +37,12 @@
 
         }
         &__action{
-            & .btn{
+            .btn{
                 cursor: pointer;
                 background-color: unset;
                 color: lighten($baseColor,30);
                 &:hover{
-                    background-color: lighten($baseColor, 45);
+                    background-color: lighten($baseColor, 30);
                     box-shadow: none;
                     color: lighten($baseColor,80);
                 }
@@ -53,6 +52,7 @@
 
     }
     &__list{
+    
         &__no-record{
             padding-top: 48px;
             padding-bottom: 48px;
@@ -60,18 +60,23 @@
         &__action{
             border-bottom: 1px solid #eee;
             padding-bottom: 15px;
+            margin-bottom: 10px;
         }
         &__item{
+            overflow: hidden;
             border-bottom: 1px solid #eee;
             padding-top: 20px;
             padding-bottom: 20px;
-            transition: all 0.4s;
+            transition: all 0.2s;
             .btn-compress{
+                display: inline-block;
+            }
+            .btn-expand{
                 display: none;
             }
             &:hover{
                 box-shadow: inset 4px 0px 0px 0px #2c6acc;
-                
+
             }
             &__header{
                 &__title{
@@ -81,25 +86,28 @@
             }
 
             &__content{
+                padding-top: 10px;
                 textarea{
                     width:100%;
                 }
+                max-height: 1000px;
+                transition: all 0.2s ease-out;
 
             }
-            
+
             &--collapsed &__content{
-                display: none;
-                
+                max-height:0;
+
             }
             &--collapsed {
                 .btn-expand{
-                    display: none;
+                    display: inline-block;
                 }
                 .btn-compress{
-                    display: inline-block;
+                    display: none;
                 }
             }
         }
-        
+
     }
 }

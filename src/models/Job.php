@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\DB;
 class Job
 {
     static public $tableName = 'jobs';
-
-    static public function get($page = 0, $itemsPerPage = 10)
+    static public function getCount(){
+        return DB::table(self::$tableName)->count();
+    }
+    static public function get($keyword = '', $itemsPerPage = 15)
     {
-        if ($page === 0) {
-            return DB::table(self::$tableName)->orderByDesc('id')->get();
-        }
-        $page = $page - 1;
-        $startFrom = $page * $itemsPerPage;
-        return DB::table(self::$tableName)->orderByDesc('id')->skip($startFrom)->take($itemsPerPage)->get();
+            return DB::table(self::$tableName)
+                ->where('payload', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('queue', 'LIKE', '%' . $keyword . '%')
+                ->orderByDesc('id')->paginate($itemsPerPage);
     }
 
     static public function delete($ids)
@@ -29,6 +29,11 @@ class Job
         } else {
             DB::table(self::$tableName)->delete($ids);
         }
+        return true;
+    }
+
+    static public function deleteAll(){
+        DB::table(self::$tableName)->truncate();
         return true;
     }
 }

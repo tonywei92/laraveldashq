@@ -2,8 +2,14 @@ $baseColor: #3c222b;
 $linkColor: #1f1015;
 $btnNormalBgColor: #48202e;
 $btnNormalColor: #fff;
-
+$paginationBgColor: #4e350c;
+body{
+    background: #e2e1e0;
+}
 .content{
-    padding-top: 20px;
-//    margin-bottom: 40px; 
+    padding-top: 70px;
+}
+
+.color-red{
+    color:red;
 }
