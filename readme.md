@@ -1,6 +1,7 @@
 # Laravel DashQueue
 
 Queue Dashboard to monitor Jobs and Failed Job with following features:
+* Work with Queue with 'database' driver
 * Retry one or more Jobs
 * Delete one or more Jobs
 * Emptying Jobs Table

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>LaravelDashQ for Database Queue</title>        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="resources/assets/icons.css">
+        <style>
+            body{
+                border-top: 0.5rem solid #3c222b;
+                font-family: 'Roboto', serif;
+                color: #3c222b;
+            }
+            a{
+                text-decoration: none;
+                text-transform: uppercase;
+                border-bottom: 1px dashed #000;
+                color: #3c222b;
+            }
+            .container {
+                padding-top: 20px;
+            }
+            .text-center{
+                text-align: center;
+            }
+            .btn{
+                text-decoration: none;
+                background-color: #3c222b;
+                color:white;
+                padding: 8px 20px;
+                border-radius: 4px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            }
+            .btn.btn-primary{
+                font-size: 1.4rem;
+            }
+            .btn.btn-primary:hover{
+                box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            }
+            img.logo{
+                width: 300px; 
+            }
+            .code{
+                background-color: #000;
+                padding: 10px;
+                margin-bottom: 10px;
+                font-size: 1.2rem;
+                font-family: monospace;
+                border-radius: 4px;
+                line-height: 1.9rem;
+            }
+            .logo{
+                padding-top: 30px;
+                padding-bottom: 40px;
+            }
+            .preview{
+                max-width: 100%;
+            }
+            .title{
+                font-weight: 300;
+                font-size: 1.8rem;
+                padding: 0;   
+            }
+            .subtitle{
+                font-weight: 300;
+                padding: 10px 0 30px 0;
+
+            }
+            .row__preview{
+                padding-top: 40px;
+            }
+            .dark{
+                border-top: 0.5rem solid #3c222b;
+                color: #eee;
+                background-color: #484848;
+                padding-top: 50px;
+                padding-bottom: 80px;
+            }
+            
+            .features{
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+            .features__title{
+                padding-bottom: 40px;
+            }
+            .features i{
+                font-size: 3rem;
+            }
+            .features__item{
+                padding-bottom: 1.5rem;
+            }
+            .features h5{
+                font-size: 1.2rem;
+                line-height: 1.8rem;
+                font-weight: 300;
+                margin-top: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            .features p{
+                
+                line-height: 1.8rem;
+                font-weight: 300;
+                margin-top: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            footer{
+                font-weight: 300;
+                line-height: 2.8rem;
+                background-color: #aaa;
+                padding-top: 2rem;
+                padding-bottom: 4.2rem;
+            }
+            .nav__footer{
+                list-style: none;
+                margin:0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .nav__footer li{
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .documentation{
+                padding-top: 1.8rem;
+                padding-bottom: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <img class="logo" src="resources/assets/logo.png" alt="laravel dashq logo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class='title'>Queues Dashboard for Laravel Queue with 'database' driver</h1>
+                    <h4 class='subtitle'>Inspired by Laravel Horizon, bring more features in the future.</h4>
+                </div>
+            </div>
+            <div class="row documentation">
+                <div class="col-12">
+                    <a href="#" class="btn btn-primary">
+                        Documentation
+                    </a>
+                </div>
+            </div>
+            <div class="row row__preview">
+                <div class="col-12">
+                    <img class="preview" src="resources/assets/preview.png" alt="preview">
+                </div>
+            </div>
+        </div>
+        <div class="quickstart dark">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <p>Quickstart:</p>
+                        <div class="code">
+                            $ composer require tonysong/laraveldashq
+                        </div>
+                        <div class="code">
+                            $ php artisan vendor:publish --tag=dashq.assets
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container features">
+            <div class="row">
+                <div class="col-12 text-center features__title">
+                    <h4>HERE'S A PEEK AT SOME OF THE FEATURES.</h4>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-sql"></i>
+                    <h5>Work with Queue with 'database' driver</h5>
+                    <p>
+                        Monitoring Queue with database driver queue, no more using Redis.
+                    </p>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-repeat" aria-hidden="true"></i>
+                    <h5>Retry one or more Jobs</h5>
+                    <p>
+                        Retry failed jobs based on selection or you retry all.
+                    </p>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-icon" aria-hidden="true"></i>
+                    <h5>Delete one or more Jobs</h5>
+                    <p>
+                        Delete jobs in few clicks.
+                    </p>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-wipe"></i>
+                    <h5>Emptying Jobs Table</h5>
+                    <p>
+                        Delete failed jobs in few clicks.
+                    </p>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-delete"></i>
+                    <h5>Emptying Failed Jobs Table</h5>
+                    <p>Clear failed job</p>
+                </div>
+                <div class="col-6 col-sm-4 features__item">
+                    <i class="icon-find"></i>
+                    <h5>Search anything</h5>
+                    <p>Search queue, payload and exceptions.</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class='nav__footer'>
+                            <li>
+                                <a href="#">Laravel</a>
+                            </li>
+                            <li>
+                                <a href="#">Laravel Horizon</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12">
+                        Copyright &copy; 2018 <a href="mailto:tonywei92@gmail.com">Tony Song</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
