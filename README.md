@@ -1,6 +1,8 @@
-# Laravel DashQueue
+# Laravel DashQ
 
-Queue Dashboard to monitor Jobs and Failed Job with following features:
+[logo]: https://raw.githubusercontent.com/tonywei92/laraveldashq/master/resources/assets/logo.png "Laravel DashQ Logo"
+
+Inspired by Laravel Horizon, a Queue Dashboard to monitor Queue Jobs with following features:
 * Work with Queue with 'database' driver
 * Retry one or more Jobs
 * Delete one or more Jobs
@@ -72,7 +74,7 @@ To deploy `app.js` and `app.css`, run following command:
 ```
 $ php artisan vendor:publish --tag=dashq.assets --force
 ```
-
+##Author
 * **Tony Song** - *Initial work* - [tonywei92@gmail.com](mailto:tonywei92@gmail.com)
 
 ## License
