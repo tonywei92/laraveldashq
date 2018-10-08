@@ -1,12 +1,12 @@
 {
     "name": "tonysong/dashq",
     "description": ":description",
-    "license": "license",
+    "license": "MIT",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Tony Song",
+            "email": "tonywei92@gmail.com",
+            "homepage": "tonywei92.github.io"
         }
     ],
     "homepage": "https://github.com/tonysong/dashq",
