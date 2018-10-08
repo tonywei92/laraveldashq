@@ -1,6 +1,7 @@
 # Laravel DashQ
 
-[logo]: https://raw.githubusercontent.com/tonywei92/laraveldashq/master/resources/assets/logo.png "Laravel DashQ Logo"
+
+![alt text](https://raw.githubusercontent.com/tonywei92/laraveldashq/master/resources/assets/logo.png)
 
 Inspired by Laravel Horizon, a Queue Dashboard to monitor Queue Jobs with following features:
 * Work with Queue with 'database' driver
