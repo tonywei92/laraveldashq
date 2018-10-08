@@ -1,6 +1,6 @@
 {
     "name": "tonysong/dashq",
-    "description": ":description",
+    "description": "A Dashboard for Laravel Queue with database driver",
     "license": "MIT",
     "authors": [
         {
