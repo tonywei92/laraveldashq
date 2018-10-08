@@ -35,11 +35,11 @@ Publish resources files (css and js)
 $ php artisan vendor:publish --tag=dashq.assets
 ```
 
-No try to navigate to `/dashq` at browser.
+Navigate to `/dashq` at browser, and you're ready to go.
 
 ## Development
 
-Develop SCSS file add, modify and enhance app look.
+Setup SCSS development.
 
 ### SCSS Compilation
 
@@ -68,7 +68,7 @@ CSS output will be at `/resources/assets/app.css`
 LaravelDashQ using plain Javascript, the JS file located at `/resources/assets/app.js`.
 
 ### Testing view
-Three files already prepared to mock real renderer blade template already provided, `home.html`, `jobs.html`, ``failedjobs.html, these files located at `/resources/assets`
+Three files already prepared to mock real renderer blade template already provided, `home.html`, `jobs.html`, `failedjobs.html`, these files are located in `/resources/assets`
 
 ### Assets file deployment:
 To deploy `app.js` and `app.css`, run following command:
@@ -85,3 +85,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to Taylor Otwell, the creator of Laravel
+* PostCSS, Gulp, etc.
