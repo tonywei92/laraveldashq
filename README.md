@@ -75,7 +75,7 @@ To deploy `app.js` and `app.css`, run following command:
 ```
 $ php artisan vendor:publish --tag=dashq.assets --force
 ```
-##Author
+## Author
 * **Tony Song** - *Initial work* - [tonywei92@gmail.com](mailto:tonywei92@gmail.com)
 
 ## License
