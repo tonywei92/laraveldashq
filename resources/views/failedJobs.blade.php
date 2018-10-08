@@ -1,4 +1,5 @@
 @extends('tonysong::layouts.master')
+@section('title')Failed Jobs @endsection
 @section('content')
     <script>
         var page = 'failedjobs';

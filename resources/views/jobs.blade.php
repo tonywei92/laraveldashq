@@ -1,5 +1,5 @@
 @extends('tonysong::layouts.master')
-
+@section('title')Jobs @endsection
 @section('content')
     <script>
         var page = 'jobs';
@@ -7,11 +7,10 @@
     <div class="content">
         <div class="container">
             <div class="row">
-
                 @include('tonysong::partials.sidemenu')
                 <div class="col-12 col-lg-9 card">
 
-                        <h1 class='page-title'>Jobs</h1>
+                    <h1 class='page-title'>Jobs</h1>
 
                     <div class="card__list">
                         @if(session()->has('success'))
@@ -30,11 +29,12 @@
                                 </div>
                             @endforeach
                         @endif
-                            <form>
-                                <label for="search">Search</label>
-                                <input type="text" id="search" name="keyword" placeholder="Keyword" value="{{isset($_GET['keyword']) ? $_GET['keyword'] : ''}}">
-                                <input type="submit" value="go">
-                            </form>
+                        <form>
+                            <label for="search">Search</label>
+                            <input type="text" id="search" name="keyword" placeholder="Keyword"
+                                   value="{{isset($_GET['keyword']) ? $_GET['keyword'] : ''}}">
+                            <input type="submit" value="go">
+                        </form>
                         @if($jobs->total()==0)
                             <div class="card__list__no-record">
                                 <div class="text-center text-jumbo">
