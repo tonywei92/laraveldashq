@@ -17,7 +17,7 @@ Inspired by Laravel Horizon, a Queue Dashboard to monitor Queue Jobs with follow
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a Laravel framework.
 
 ### Prerequisites
-Make sure you have choose 'database' driver for Queue in `config.app`
+Make sure you have choose 'database' driver for Queue in `config/queue.php`
 
 Require this package:
 
