@@ -38,10 +38,8 @@ class DashQServiceProvider extends ServiceProvider
 
             // Publishing assets.
             $this->publishes([
-                __DIR__.'/../resources/assets/app.css' => public_path('tonysong/dashq'),
-            ], 'dashq.assets');
-            $this->publishes([
-                __DIR__.'/../resources/assets/app.js' => public_path('tonysong/dashq'),
+                __DIR__.'/../resources/assets/app.css' => public_path('tonysong/dashq/app.css'),
+                __DIR__.'/../resources/assets/app.js' => public_path('tonysong/dashq/app.js'),
             ], 'dashq.assets');
 
             // Publishing the translation files.
