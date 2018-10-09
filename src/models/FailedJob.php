@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\DB;
 class FailedJob
 {
     static public $tableName = 'failed_jobs';
-
     static public function getCount()
     {
-        return DB::table(self::$tableName)->count();
+        return DB::connection(config('dashq.db.connection','mysql'))->table(self::$tableName)->count();
     }
 
     static public function get($keyword = '', $itemsPerPage = 15)
     {
-        return DB::table(self::$tableName)
+        return DB::connection(config('dashq.db.connection','mysql'))->table(self::$tableName)
             ->where('exception', 'LIKE', '%' . $keyword . '%')
             ->orWhere('payload', 'LIKE', '%' . $keyword . '%')
             ->orWhere('queue', 'LIKE', '%' . $keyword . '%')
@@ -29,18 +28,18 @@ class FailedJob
         if (is_array($ids)) {
             DB::transaction(function () use ($ids) {
                 foreach ($ids as $id) {
-                    DB::table(self::$tableName)->delete($id);
+                    DB::connection(config('dashq.db.connection','mysql'))->table(self::$tableName)->delete($id);
                 }
             });
         } else {
-            DB::table(self::$tableName)->delete($ids);
+            DB::connection(config('dashq.db.connection','mysql'))->table(self::$tableName)->delete($ids);
         }
         return true;
     }
 
     static public function deleteAll()
     {
-        DB::table(self::$tableName)->truncate();
+        DB::connection(config('dashq.db.connection','mysql'))->table(self::$tableName)->truncate();
         return true;
     }
 

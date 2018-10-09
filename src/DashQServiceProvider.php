@@ -3,16 +3,21 @@
 namespace TonySong\DashQ;
 
 use Illuminate\Support\ServiceProvider;
+use TonySong\DashQ\middlewares\CheckJobSystem;
 
 class DashQServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
      *
+     * @param \Illuminate\Routing\Router $router
      * @return void
      */
-    public function boot()
+    public function boot(\Illuminate\Routing\Router $router)
     {
+        // Router
+        $router->pushMiddlewareToGroup('checkJobSystem', CheckJobSystem::class);
+
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tonysong');
          $this->loadViewsFrom(__DIR__.'/../resources/views', 'tonysong');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');

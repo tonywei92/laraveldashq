@@ -56,3 +56,6 @@
 .icon-wipe:before {
   content: "\66";
 }
+.icon-responsive:before {
+  content: "\67";
+}

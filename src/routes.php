@@ -7,6 +7,7 @@ if(is_array($dashqConfig['middleware'])){
     $dashqMiddleware = array_merge($dashqMiddleware,$dashqConfig['middleware']);
 }
 $dashqMiddleware[] = 'web';
+$dashqMiddleware[] = 'checkJobSystem';
 
 
 Route::group(['middleware' => $dashqMiddleware, 'prefix' => $dashqUri], function(){

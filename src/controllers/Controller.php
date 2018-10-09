@@ -15,6 +15,7 @@ class Controller extends BaseController
     public function index()
     {
         $failedJobCount = FailedJob::getCount();
+
         $jobCount = Job::getCount();
         return view('tonysong::home', [
             'failedJobCount' => $failedJobCount,
