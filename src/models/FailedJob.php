@@ -61,7 +61,7 @@ class FailedJob
 
     static public function retryAll()
     {
-        Artisan::call('queue:retry', 'all');
+        Artisan::call('queue:retry', ['id'=>'all']);
         return true;
     }
 }
