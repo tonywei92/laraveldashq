@@ -9,7 +9,7 @@
             "homepage": "https://tonywei92.github.io"
         }
     ],
-    "homepage": "https://github.com/tonysong/dashq",
+    "homepage": "https://tonywei92.github.io/laraveldashq",
     "keywords": ["Laravel", "DashQ"],
     "require": {
         "illuminate/support": "~5"
