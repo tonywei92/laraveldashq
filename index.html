@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="resources/assets/icons.css">
         <style>
             body{
+                background: linear-gradient(25deg,#6c3f35,#e3d5c3);
+                overflow-x: hidden;
                 border-top: 0.5rem solid #3c222b;
                 font-family: 'Roboto', serif;
                 color: #3c222b;
@@ -32,9 +34,10 @@
                 text-align: center;
             }
             .btn{
+                display: inline-block;
                 text-decoration: none;
                 background-color: #3c222b;
-                color:white;
+                color: white;
                 padding: 20px 40px;
                 border-radius: 4px;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -51,9 +54,9 @@
                 width: 200px; 
             }
             @media (min-width: 560px){
-             img.logo{
-                width: 300px; 
-            }   
+                img.logo{
+                    width: 300px; 
+                }   
             }
             .code{
                 background-color: #000;
@@ -80,7 +83,7 @@
             .subtitle{
                 line-height: 1.8rem;
                 font-weight: 300;
-                padding: 10px 0 30px 0;
+                padding: 10px 0 10px 0;
 
             }
             .row__preview{
@@ -89,14 +92,15 @@
             .dark{
                 border-top: 0.5rem solid #3c222b;
                 color: #eee;
-                background-color: #484848;
+                background-color: #714040;
                 padding-top: 50px;
                 padding-bottom: 80px;
             }
-            
+
             .features{
                 padding-top: 80px;
                 padding-bottom: 80px;
+                color: #fff;
             }
             .features__title{
                 padding-bottom: 40px;
@@ -117,18 +121,23 @@
                 margin-bottom: 0.8rem;
             }
             .features p{
-                
+
                 line-height: 1.8rem;
                 font-weight: 300;
                 margin-top: 1rem;
                 margin-bottom: 0.8rem;
             }
             footer{
+                color: #fff;
                 font-weight: 300;
                 line-height: 2.8rem;
-                background-color: #aaa;
+                background-color: #411a1a;
                 padding-top: 2rem;
                 padding-bottom: 4.2rem;
+            }
+            footer a{
+                color: #fff;
+                border-bottom: 1px dashed #fff;
             }
             .nav__footer{
                 list-style: none;
@@ -145,9 +154,28 @@
                 padding-top: 1.8rem;
                 padding-bottom: 2rem;
             }
+
+            #container{
+                position: absolute;
+            }
+            #blurCanvasTop{
+                left:0%;
+                top:0%;
+                position:absolute;
+            }
+            #blurCanvasBottom{
+
+                position:absolute;
+            }
+            .blur {
+                position:absolute;
+                overflow:hidden;
+            }
         </style>
     </head>
     <body>
+        <canvas class="container" id="container" role="main"></canvas>
+
         <div class="container text-center">
             <div class="row">
                 <div class="col-12">
@@ -162,6 +190,9 @@
             </div>
             <div class="row documentation">
                 <div class="col-12">
+                    <p>
+                        <a href="#">What is Queue?</a>
+                    </p>
                     <a href="https://github.com/tonywei92/laraveldashq" class="btn btn-primary">
                         Documentation
                     </a>
@@ -177,7 +208,7 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-12">
-                       <h2>Installation</h2>
+                        <h2>Installation</h2>
                         <p>Quickstart:</p>
                         <div class="code">
                             $ composer require tonysong/dashq
@@ -222,13 +253,13 @@
                     <i class="icon-wipe"></i>
                     <h5>Emptying Jobs Table</h5>
                     <p>
-                        Delete failed jobs in few clicks.
+                        Delete jobs in few clicks.
                     </p>
                 </div>
                 <div class="col-6 col-sm-4 features__item">
                     <i class="icon-delete"></i>
                     <h5>Emptying Failed Jobs Table</h5>
-                    <p>Clear failed job</p>
+                    <p>Clear failed jobs.</p>
                 </div>
                 <div class="col-6 col-sm-4 features__item">
                     <i class="icon-find"></i>
@@ -256,5 +287,123 @@
                 </div>
             </div>
         </footer>
+        <div class="blur blurTop"><canvas class="canvas"id="blurCanvasTop"></canvas></div>
+        <div class="blur blurBottom"><canvas class="canvas" id="blurCanvasBottom"></canvas></div>
     </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var canvas = document.getElementById('container');
+        var clone = document.getElementById('blurCanvasBottom');
+
+        var cloneCtx = clone.getContext('2d');
+        var ctx = canvas.getContext('2d');
+
+
+        var w = $('#blurCanvasTop').width();
+        var h = $('#blurCanvasTop').height();
+
+        var ww = $(window).width();
+        var wh = $(window).height();
+        canvas.width = ww;
+        canvas.height= wh;
+        var partCount = 100;
+        var particles = [];
+
+        function particle(){
+            this.color = 'rgba(255,255,255,'+ Math.random()+')';
+            console.log(this.color);
+            this.x = randomInt(0,ww);
+            this.y = randomInt(0,wh);
+            this.direction = {
+                "x": -1 + Math.random() * 2,
+                "y": -1 + Math.random() * 2
+            };
+            this.vx = 0.3 * Math.random();
+            this.vy = 0.3 * Math.random();
+            this.radius = randomInt(2,3);
+            this.float = function(){
+                this.x += this.vx * this.direction.x;
+                this.y += this.vy * this.direction.y;
+            };
+            this.changeDirection = function (axis) {
+                this.direction[axis] *= -1;
+            };
+            this.boundaryCheck = function () {
+                if (this.x >= ww) {
+                    this.x = ww;
+                    this.changeDirection("x");
+                } else if (this.x <= 0) {
+                    this.x = 0;
+                    this.changeDirection("x");
+                }
+                if (this.y >= wh) {
+                    this.y = wh;
+                    this.changeDirection("y");
+                } else if (this.y <= 0) {
+                    this.y = 0;
+                    this.changeDirection("y");
+                }
+            };
+            this.draw = function () {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fill();
+            };
+        }
+        function clearCanvas() {
+            cloneCtx.clearRect(0, 0, ww, wh);
+            ctx.clearRect(0, 0, ww, wh);
+        }
+        function createParticles(){
+            for (i=0;i<partCount;i++){
+                var p = new particle();
+                particles.push(p);
+            }
+        }
+        function drawParticles() {
+            for (i=0;i<particles.length;i++) {
+                p = particles[i];
+                p.draw();
+            }
+        }
+        function updateParticles() {
+            for (var i = particles.length - 1; i >= 0; i--) {
+                p = particles[i];
+                p.float();
+                p.boundaryCheck();
+            }
+        }
+        createParticles();
+        drawParticles();
+        function animateParticles() {
+            clearCanvas();
+            drawParticles();
+            updateParticles();
+            cloneCtx.drawImage(canvas, 0, 0);
+            requestAnimationFrame(animateParticles);
+        }
+        requestAnimationFrame(animateParticles);
+        cloneCtx.drawImage(canvas, 0, 0);
+
+        $(window).on('resize',function(){
+            ww = $(window).width();
+            wh = $(window).height();
+            canvas.width = ww;
+            canvas.height= wh;
+            clearCanvas();
+            particles = [];
+            createParticles();
+            drawParticles();
+        });
+        function randomInt(min,max)
+        {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        function velocityInt(min,max)
+        {
+            return Math.random()*(max-min+1)+min;
+        }
+
+    </script>
 </html>

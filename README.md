@@ -22,7 +22,7 @@ Make sure you have choose 'database' driver for Queue in `config.app`
 Require this package:
 
 ```
-$ composer require tonysong/laraveldashq
+$ composer require tonysong/dashq
 ```
 
 ### Installing
@@ -35,7 +35,7 @@ Publish resources files (css and js)
 $ php artisan vendor:publish --tag=dashq.assets
 ```
 
-Navigate to `/dashq` at browser, and you're ready to go.
+Navigate to `yourweb.com/dashq` at browser, and you're ready to go.
 
 ## Development
 
